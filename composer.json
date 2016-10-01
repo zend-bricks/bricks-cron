@@ -1,0 +1,39 @@
+{
+    "name": "zend-bricks/bricks-cron",
+    "description": "add jobs to fifo queue and run them",
+    "keywords": [
+        "php",
+        "zend",
+        "bricks",
+        "cron"
+    ],
+    "license": "LGPL-3.0",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.6.0",
+        "zendframework/zend-mvc": "*",
+        "zendframework/zend-cache": "*",
+        "zendframework/zend-serializer": "*",
+        "zendframework/zend-form": "*",
+        "zendframework/zend-json": "*",
+        "zendframework/zend-mvc-console": "*",
+        "zendframework/zend-mvc-i18n": "*",
+        "zendframework/zend-mvc-plugins": "*",
+        "zendframework/zend-session": "*",
+        "zendframework/zend-servicemanager": "*",
+        "zendframework/zend-servicemanager-di": "*",
+        "zendframework/zend-navigation": "*",
+        "zendframework/zend-crypt": "*",
+        "zendframework/zend-permissions-acl": "*",
+        "zendframework/zend-i18n": "*",
+        "zendframework/zend-captcha": "*",
+        "zend-bricks/bricks-common": "*",
+        "zendframework/zend-developer-tools": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZendBricks\\BricksCron\\": "src/"
+        }
+    }
+}
