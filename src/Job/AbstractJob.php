@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendBricks\BricksCron\Queue;
+namespace ZendBricks\BricksCron\Job;
 
 abstract class AbstractJob
 {
@@ -26,5 +26,5 @@ abstract class AbstractJob
         return $this->dependencies;
     }
 
-    abstract function run();
+    abstract public function run();
 }

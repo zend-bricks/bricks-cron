@@ -2,7 +2,7 @@
 
 namespace ZendBricks\BricksCron\Api;
 
-use ZendBricks\BricksCron\Queue\AbstractJob;
+use ZendBricks\BricksCron\Job\AbstractJob;
 
 interface CronApiInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ZendBricks\BricksUser\Controller;
+namespace ZendBricks\BricksCron\Controller;
 
 use Zend\ServiceManager\Factory\FactoryInterface;
 use Interop\Container\ContainerInterface;
