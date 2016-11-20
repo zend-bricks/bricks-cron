@@ -7,7 +7,7 @@ return [
         'routes' => [
             'cronWorker' => [
                 'options' => [
-                    'route'    => 'cron-worker',
+                    'route' => 'cron-worker [--verbose]',
                     'defaults' => [
                         'controller' => Controller\CronController::class,
                         'action' => 'worker'

@@ -14,6 +14,7 @@ class Module
     public function getConsoleUsage($console){
         return [
             'cron-worker' => 'Start a worker for cron queue',
+            ['--verbose', 'more debug & progress information']
         ];
     }
 }

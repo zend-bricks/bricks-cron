@@ -11,6 +11,7 @@ class Worker
     protected $progressOutput = true;
     protected $api;
     protected $resources = [];
+    protected $verboseMode;
 
     /**
      * @param CronApiInterface $api
@@ -20,10 +21,21 @@ class Worker
         $this->api = $api;
     }
     
+    public function setVerboseMode($bool)
+    {
+        $this->verboseMode = $bool;
+    }
+    
+    public function isVerboseMode()
+    {
+        return $this->verboseMode;
+    }
+    
     public function run()
     {
         $startTimestamp = time();
         $counter = 0;
+        /* @var $job \ZendBricks\BricksCron\Job\AbstractJob */
         while (
             ($runTime = time() - $startTimestamp) < self::MAX_EXECUTION_TIME
             && $job = $this->api->getNextJob()  //there are any jobs to do
@@ -37,6 +49,7 @@ class Worker
                     continue 2;
                 }
             }
+            $job->setVerboseMode($this->isVerboseMode());
             if ($job->run()) {
                 $this->api->markJobDone($job);
             } else {

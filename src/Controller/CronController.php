@@ -16,6 +16,7 @@ class CronController extends AbstractActionController
     
     public function workerAction()
     {
+        $this->worker->setVerboseMode((bool) $this->params()->fromRoute('verbose'));
         $this->worker->run();
     }
 }
