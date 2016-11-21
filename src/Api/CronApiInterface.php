@@ -15,4 +15,10 @@ interface CronApiInterface
     public function markJobDone(AbstractJob $job);
     
     public function markJobFailed(AbstractJob $job);
+    
+    /**
+     * Is called after the end of the current queue
+     * You can use this to queue all failed jobs again
+     */
+    public function onQueueCompleted();
 }

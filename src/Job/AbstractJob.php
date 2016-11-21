@@ -2,18 +2,22 @@
 
 namespace ZendBricks\BricksCron\Job;
 
+use Interop\Container\ContainerInterface;
+
 abstract class AbstractJob
 {
+    const NAME = 'AbstractJob';
     protected $id;
-    protected $name;
+    protected $dependencies;
+    protected $container;
     protected $data;
-    protected $dependencies = [];
     protected $verboseMode;
     
-    public function __construct($id, $name, array $data = [])
+    public function __construct($id, array $dependencies, ContainerInterface $container, array $data = [])
     {
         $this->id = $id;
-        $this->name = $name;
+        $this->dependencies = $dependencies;
+        $this->container = $container;
         $this->data = $data;
     }
 
@@ -24,7 +28,7 @@ abstract class AbstractJob
     
     public function getName()
     {
-        return $this->name;
+        return self::NAME;
     }
     
     public function getData($key = null)
@@ -55,4 +59,14 @@ abstract class AbstractJob
     }
 
     abstract public function run();
+    
+    /**
+     * Get an object from the Interop Container
+     * @param string $id
+     * @return mixed
+     */
+    protected function getService($id)
+    {
+        return $this->container->get($id);
+    }
 }
