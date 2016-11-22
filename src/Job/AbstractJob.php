@@ -28,7 +28,7 @@ abstract class AbstractJob
     
     public function getName()
     {
-        return self::NAME;
+        return $this::NAME;
     }
     
     public function getData($key = null)

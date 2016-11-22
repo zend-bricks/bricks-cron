@@ -66,6 +66,17 @@ class ConfigService
         return $possibleJobs;
     }
     
+    public function getIntervalJobs()
+    {
+        $intervalJobs = [];
+        foreach ($this->jobs as $jobName => $job) {
+            if (array_key_exists('interval', $job)) {
+                $intervalJobs[$jobName] = $job['interval'];
+            }
+        }
+        return $intervalJobs;
+    }
+
     protected function getJobData($jobName)
     {
         if (array_key_exists($jobName, $this->jobs)) {
